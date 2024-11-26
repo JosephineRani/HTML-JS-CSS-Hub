@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple form validation</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+      .form-container {
+        border: 1px solid black;
+        padding: 30px;
+        width: 20%;
+      }
+      table{
+        padding-left: 30px;
+      }
+      #submit-btn{
+        padding: 10px 20px;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Simple validation form using javascript</h1>
+    <div class="form-container">
+       
+      <form id="formSubmit" onsubmit="return onSubmit()">
+        <table>
+          <tr>
+            <td><label for="name">Name</label></td>
+            <td><input type="text" id="name" /></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><span id="nameAlert" style="color: red"></span></td>
+          </tr>
+
+          <tr>
+            <td><label for="number">Number</label></td>
+            <td><input type="text" id="number" /></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><span id="numberAlert" style="color: red"></span></td>
+          </tr>
+
+          <tr>
+            <td><label for="email">Email</label></td>
+            <td><input type="email" id="email" /></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><span id="emailAlert" style="color: red"></span></td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td><input type="submit" id="submit-btn"/></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+
+    <script>
+      function onSubmit() {
+        let name = document.getElementById("name").value;
+        let number = document.getElementById("number").value;
+        let email = document.getElementById("email").value;
+        if (name == "" && number == "" && email == "") {
+          document.getElementById("nameAlert").innerHTML = "Name is required";
+          document.getElementById("numberAlert").innerHTML =
+            "Number is required";
+          document.getElementById("emailAlert").innerHTML = "email is required";
+          return false;
+        } else {
+          if (name == "") {
+            document.getElementById("nameAlert").innerHTML = "Name is required";
+            return false;
+          } else {
+            document.getElementById("nameAlert").innerHTML = "";
+          }
+
+          if (number == "" && isNaN(number)) {
+            document.getElementById("numberAlert").innerHTML =
+              "Number id required";
+            return false;
+          } else {
+            document.getElementById("numberAlert").innerHTML = "";
+          }
+
+          if (email == "") {
+            document.getElementById("emailAlert").innerHTML =
+              "Email is required";
+            return false;
+          } else {
+            document.getElementById("emailAlert").innerHTML = "";
+          }
+        }
+        alert("Form Submitted");
+
+        return true;
+      }
+    </script>
+  </body>
+</html>

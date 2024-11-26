@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Form</title>
+    <style>
+      body {
+        background-image: linear-gradient(to bottom right, #c41da3, #241280);
+        height: 95vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .form-container {
+        background-color: white;
+        width: 50%;
+      }
+      #form-template {
+        margin: 20px 30px;
+      }
+      img {
+        height: 30px;
+        width: 50px;
+      }
+      .images {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      .input-box {
+        position: relative;
+        margin-bottom: 20px;
+      }
+      label {
+        position: absolute;
+        top: 40%;
+        left: 5%;
+        font-size: 10px;
+      }
+      .input-box input {
+        height: 50px;
+        width: 95%;
+        background-color: #fada4d;
+        border: 2px solid #8f8b75;
+        border-radius: 3px;
+      }
+      .input-box-dates {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .input-box-dates .input-box {
+        margin-right: 20px;
+      }
+      .input-box-dates input {
+        width: 100%;
+      }
+      button {
+        width: 30%;
+        background-color: #6136ff;
+        padding: 13px 30px;
+        border-radius: 20px;
+        color: white;
+        border-style: none;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.23);
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      input:focus~label{
+        top: 0%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <form id="form-template">
+        <h1>Payment</h1>
+        <div class="images">
+          <img
+            src="https://dorve.com/wp-content/uploads/2021/07/Visa-Logo-2006-2014.png"
+            alt="visa"
+          />
+          <img
+            src="https://banner2.cleanpng.com/20180802/xri/5c06c331d802e115c4f41577cf477ba0.webp"
+            alt="mastercard"
+          />
+          <img
+            src="https://newsroom.paypal-corp.com/image/pp_h_rgb_logo_tn.jpg"
+            alt="paypal"
+          />
+        </div>
+        <div class="card-details">
+          <p>Card Details</p>
+          <div class="input-box">
+            <input type="text" id="name" />
+            <label for="name">NAME ON THE CARD</label>
+          </div>
+          <div class="input-box">
+            <input type="text" id="cardno" />
+            <label for="cardno">CARD NUMBER</label>
+          </div>
+          <div class="input-box-dates">
+            <div class="input-box">
+              <input type="text" id="expiry" />
+              <label for="expiry">EXPIRY DATE</label>
+            </div>
+            <div class="input-box">
+              <input type="number" id="cvv" />
+              <label for="cvv">CVV</label>
+            </div>
+          </div>
+        </div>
+        <button type="button">Pay</button>
+      </form>
+    </div>
+  </body>
+</html>

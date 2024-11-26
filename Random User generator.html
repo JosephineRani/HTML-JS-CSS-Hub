@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random user generator</title>
+  </head>
+  <body>
+    <div>
+      <h1>Random user generator</h1>
+      <div id="random-user-container"></div>
+      <button type="button" onclick="randomUser()">Generate User</button>
+    </div>
+
+    <script>
+      let result = document.getElementById("random-user-container");
+      async function randomUser() {
+        try {
+          let response = await fetch("https://randomuser.me/api/");
+          let jsonResponse = await response.json();
+          let userdata = jsonResponse.results[0];
+          let data = ` ${userdata.name.title} ${userdata.name.first} ${userdata.name.last} `;
+          result.innerHTML = data;
+        } catch (err) {
+          console.log("error");
+        }
+      }
+    </script>
+  </body>
+</html>

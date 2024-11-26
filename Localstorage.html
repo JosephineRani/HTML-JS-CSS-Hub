@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Localstorage</title>
+  </head>
+  <body>
+    <div>
+      <form onsubmit="return onSubmit()">
+        <input type="text" placeholder="Name" id="name" />
+        <input type="text" placeholder="Email Address" id="email" />
+        <button type="submit">Submit</button>
+      </form>
+      <form onsubmit="return onSearch(event)">
+        <input type="text" placeholder="Search" id="searchValue" />
+        <button type="submit">Search</button>
+        <p>Output: <span id="result"></span></p>
+      </form>
+    </div>
+    <script>
+      function onSubmit() {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+
+        localStorage.setItem("Username", name);
+        localStorage.setItem("Email address", email);
+
+        alert("Submitted");
+        return true;
+      }
+      function onSearch(event) {
+        event.preventDefault()
+        let searchValue = document.getElementById("searchValue").value.trim();
+        let resultValue = localStorage.getItem(searchValue);
+        document.getElementById("result").innerHTML = resultValue;
+        return true;
+      }
+    </script>
+  </body>
+</html>

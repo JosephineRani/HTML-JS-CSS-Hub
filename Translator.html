@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Translator</title>
+  </head>
+  <body>
+    <div>
+      <form>
+        <label for="">Name</label>
+        <input type="text" placeholder="Enter your name" />
+        <label for="">Number</label>
+        <input type="text" placeholder="Enter your number" />
+        <label for="">Email</label>
+        <input type="text" placeholder="Enter your email" />
+
+        <button type="button">Submit</button>
+      </form>
+    </div>
+    <div id="translator-container"></div>
+    <script
+      type="text/javascript"
+      src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          { pagelanguage: "en" },
+          "translator-container"
+        );
+      }
+    </script>
+  </body>
+</html>

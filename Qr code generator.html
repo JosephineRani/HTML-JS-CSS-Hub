@@ -1,0 +1,87 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR code generator</title>
+  </head>
+  <body>
+    <div>
+      <h1>QR Code Generator</h1>
+      <input type="text" placeholder="Enter text or URL" id="code" />
+      <button type="button" onclick="generateQR()">Generate</button>
+    </div>
+    <div id="resultCode"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+    <script>
+      function generateQR() {
+        let inputValue = document.getElementById("code").value;
+        let codeContainer = document.getElementById("resultCode");
+        codeContainer.innerHTML = "";
+
+        if (inputValue.trim() !== "") {
+          new QRCode(codeContainer, {
+            text: inputValue,
+            width: 50,
+            height: 50,
+          });
+        }
+      }
+    </script>
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator</title>
+  </head>
+  <body>
+    <div>
+      <h1>QR Code Generator</h1>
+      <input type="text" placeholder="Enter text or URL" id="code" />
+      <button type="button" onclick="generateQR()">Generate</button>
+    </div>
+    <div id="resultCode" style="margin-top: 20px"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+    <script>
+      function generateQR() {
+        let inputValue = document.getElementById("code").value.trim();
+        let codeContainer = document.getElementById("resultCode");
+        codeContainer.innerHTML = ""; // Clear any existing QR code
+
+        if (inputValue !== "") {
+          let qrCode = qrcode(0, "L");
+          qrCode.addData(inputValue);
+          qrCode.make();
+          codeContainer.innerHTML = qrCode.createImgTag(8);
+        } else {
+          codeContainer.innerHTML = "<p> Enter value </p>";
+        }
+      }
+    </script>
+  </body>
+</html>
+
+<!-- Points to remember  -->
+
+<!-- Parameters of qrcode
+1. 0 (QR Code Type):
+
+Specifies the "type number" or version of the QR code.
+QR code versions range from 1 to 40:
+    Version 1: The smallest QR code (21×21 modules).
+    Version 40: The largest QR code (177×177 modules).
+0 means the library will automatically determine the best version to fit the data provided.
+
+2. 'L' (Error Correction Level):
+
+Determines the error correction capability of the QR code. It helps the QR code remain scannable even if part of it is damaged or obscured.
+Four error correction levels are available:
+    'L' (Low): Can recover ~7% of the data.
+    'M' (Medium): Can recover ~15% of the data.
+    'Q' (Quartile): Can recover ~25% of the data.
+    'H' (High): Can recover ~30% of the data. -->
